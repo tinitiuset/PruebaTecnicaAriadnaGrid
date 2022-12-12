@@ -9,6 +9,10 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+import static org.api.Buscador.*;
 
 public class Main {
 
@@ -18,7 +22,41 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Fuente> fuentes = loadFuentes();
         ArrayList<Evento> eventos = loadEventos();
-        System.out.println("Hello world!");
+        while (true)
+        {
+            try {
+                switch (printMenu()) {
+                    case 1 -> printEventosDate(eventos);
+                    case 2 -> printEventosFuenteId(eventos);
+                    case 3 -> printEventosMinMax(eventos);
+                    default -> System.out.println("Opción no válida");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Error: Por favor, introduzca un número");
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+    }
+
+    /**
+     * Imprimir el menú principal y devolver la opción elegida
+     *
+     * @return Opción elegida como Integer
+     */
+    private static int printMenu() {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(
+                """
+                        ---- PRUEBA TÉCNICA ARIADNA GRID ----
+                        1 - Buscar eventos por lista de timestamps.
+                        2 - Buscar eventos por fuente_id.
+                        3 - Buscar eventos dentro de un rango de valores (valor min, valor max)."""
+        );
+        return (input.nextInt());
     }
 
     /**
