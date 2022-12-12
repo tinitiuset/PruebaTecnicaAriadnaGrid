@@ -4,8 +4,8 @@ package org.api;
  * @author Martin Valiente Ainz
  */
 public class Fuente {
-    int id;
-    String nombre;
+    private int id;
+    private String nombre;
 
     /**
      * Constructor de la clase Fuente
