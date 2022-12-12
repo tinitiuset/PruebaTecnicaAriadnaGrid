@@ -2,10 +2,14 @@ package org.api;
 
 import java.util.*;
 
+/**
+ * @author Martin Valiente Ainz
+ */
 public class Buscador {
 
     /**
      * Imprimir los eventos que se encuentren en la lista de fechas
+     *
      * @param eventos Listado de eventos
      */
     protected static void printEventosDate(ArrayList<Evento> eventos) {
@@ -18,7 +22,7 @@ public class Buscador {
             while (true) {
                 System.out.println(
                         "Introduzca el valor de Unix timestamp a buscar," +
-                        " o introduzca '0' confirmar entrada:"
+                                " o introduzca '0' confirmar entrada:"
                 );
                 int date = input.nextInt();
                 if (date == 0) {
@@ -41,6 +45,7 @@ public class Buscador {
 
     /**
      * Imprimir los eventos que coincidan con el fuenteId introducido
+     *
      * @param eventos Listado de eventos
      */
     protected static void printEventosFuenteId(ArrayList<Evento> eventos) {
@@ -66,6 +71,7 @@ public class Buscador {
 
     /**
      * Imprimir los eventos que se encuentran dentro de un rango de valores
+     *
      * @param eventos Listado de eventos
      */
     protected static void printEventosMinMax(ArrayList<Evento> eventos) {
