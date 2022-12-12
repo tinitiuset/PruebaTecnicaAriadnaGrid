@@ -1,18 +1,42 @@
 <Fuentes>
     <Fuente>
-        <id></id>
-        <nombre></nombre>
+        <id>1</id>
+        <nombre>Paris</nombre>
     </Fuente>
     <Fuente>
-        <id></id>
-        <nombre></nombre>
+        <id>2</id>
+        <nombre>Milán</nombre>
     </Fuente>
     <Fuente>
-        <id></id>
-        <nombre></nombre>
+        <id>3</id>
+        <nombre>Florencia</nombre>
     </Fuente>
     <Fuente>
-        <id></id>
-        <nombre></nombre>
+        <id>4</id>
+        <nombre>Orlando</nombre>
+    </Fuente>
+    <Fuente>
+        <id>5</id>
+        <nombre>Brooklyn</nombre>
+    </Fuente>
+    <Fuente>
+        <id>6</id>
+        <nombre>Denver</nombre>
+    </Fuente>
+    <Fuente>
+        <id>7</id>
+        <nombre>Sidney</nombre>
+    </Fuente>
+    <Fuente>
+        <id>8</id>
+        <nombre>Phoenix</nombre>
+    </Fuente>
+    <Fuente>
+        <id>9</id>
+        <nombre>Madrid</nombre>
+    </Fuente>
+    <Fuente>
+        <id>10</id>
+        <nombre>Londres</nombre>
     </Fuente>
 </Fuentes>
