@@ -1,8 +1,6 @@
 package org.api;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Buscador {
 
@@ -11,6 +9,34 @@ public class Buscador {
      * @param eventos Listado de eventos
      */
     protected static void printEventosDate(ArrayList<Evento> eventos) {
+
+        try {
+
+            Set<Date> dateSet = new HashSet<>();
+            Scanner input = new Scanner(System.in);
+
+            while (true) {
+                System.out.println(
+                        "Introduzca el valor de Unix timestamp a buscar," +
+                        " o introduzca '0' confirmar entrada:"
+                );
+                int date = input.nextInt();
+                if (date == 0) {
+                    break;
+                }
+                dateSet.add(new Date(date * 1000L));
+            }
+            for (Evento evento : eventos) {
+                if (dateSet.contains(evento.getFecha())) {
+                    System.out.println(evento);
+                }
+            }
+            System.out.println("\n");
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Por favor, introduzca un número");
+        } catch (Exception e) {
+            System.out.println("Error genérico");
+        }
     }
 
     /**
@@ -30,6 +56,7 @@ public class Buscador {
                     System.out.println(evento);
                 }
             }
+            System.out.println("\n");
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
         } catch (Exception e) {
@@ -56,6 +83,7 @@ public class Buscador {
                     System.out.println(evento);
                 }
             }
+            System.out.println("\n");
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
         } catch (Exception e) {
