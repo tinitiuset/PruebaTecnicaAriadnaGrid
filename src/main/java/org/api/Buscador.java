@@ -18,6 +18,23 @@ public class Buscador {
      * @param eventos Listado de eventos
      */
     protected static void printEventosFuenteId(ArrayList<Evento> eventos) {
+
+        try {
+            Scanner input = new Scanner(System.in);
+
+            System.out.println("Introduzca el valor de fuenteId:");
+            int fuenteId = input.nextInt();
+
+            for (Evento evento : eventos) {
+                if (evento.getFuenteId() == fuenteId) {
+                    System.out.println(evento);
+                }
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Error: Por favor, introduzca un número");
+        } catch (Exception e) {
+            System.out.println("Error genérico");
+        }
     }
 
     /**
