@@ -1,6 +1,6 @@
 package org.api;
 
-import java.security.Timestamp;
+import java.util.Date;
 
 /**
  * @author Martin Valiente Ainz
@@ -8,17 +8,18 @@ import java.security.Timestamp;
 public class Evento {
     private int id;
     private int fuenteId;
-    private Timestamp fecha;
+    private Date fecha;
     private int valor;
 
     /**
      * Constructor de la clase Evento
-     * @param id Identificador del evento
+     *
+     * @param id       Identificador del evento
      * @param fuenteId Identificador de la fuente
-     * @param fecha Fecha del evento
-     * @param valor Valor del evento
+     * @param fecha    Fecha del evento
+     * @param valor    Valor del evento
      */
-    public Evento(int id, int fuenteId, Timestamp fecha, int valor) {
+    public Evento(int id, int fuenteId, Date fecha, int valor) {
         this.id = id;
         this.fuenteId = fuenteId;
         this.fecha = fecha;
@@ -27,6 +28,7 @@ public class Evento {
 
     /**
      * Devuelve el identificador del evento
+     *
      * @return Identificador del evento
      */
     public int getId() {
@@ -35,6 +37,7 @@ public class Evento {
 
     /**
      * Establece el identificador del evento
+     *
      * @param id Identificador del evento
      */
     public void setId(int id) {
@@ -43,6 +46,7 @@ public class Evento {
 
     /**
      * Devuelve el identificador de la fuente del evento
+     *
      * @return Identificador de la fuente del evento
      */
     public int getFuenteId() {
@@ -51,6 +55,7 @@ public class Evento {
 
     /**
      * Establece el identificador de la fuente del evento
+     *
      * @param fuenteId Identificador de la fuente del evento
      */
     public void setFuenteId(int fuenteId) {
@@ -59,22 +64,25 @@ public class Evento {
 
     /**
      * Devuelve la fecha del evento
+     *
      * @return Fecha del evento
      */
-    public Timestamp getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
     /**
      * Establece la fecha del evento
+     *
      * @param fecha Fecha del evento
      */
-    public void setFecha(Timestamp fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
     /**
      * Devuelve el valor del evento
+     *
      * @return Valor del evento
      */
     public int getValor() {
@@ -83,6 +91,7 @@ public class Evento {
 
     /**
      * Establece el valor del evento
+     *
      * @param valor Valor del evento
      */
     public void setValor(int valor) {
