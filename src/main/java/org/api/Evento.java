@@ -97,4 +97,14 @@ public class Evento {
     public void setValor(int valor) {
         this.valor = valor;
     }
+
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "id=" + id +
+                ", fuenteId=" + fuenteId +
+                ", fecha=" + fecha +
+                ", valor=" + valor +
+                '}';
+    }
 }
