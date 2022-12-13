@@ -31,7 +31,7 @@ public class Buscador {
             }
             for (Evento evento : getEventosDate(eventos, dateSet))
                 System.out.println(evento);
-            System.out.println("\n");
+            System.out.println();
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
         } catch (Exception e) {
@@ -72,7 +72,7 @@ public class Buscador {
 
             for (Evento evento : getEventosFuenteId(eventos, fuenteId))
                 System.out.println(evento);
-            System.out.println("\n");
+            System.out.println();
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
         } catch (Exception e) {
@@ -115,7 +115,7 @@ public class Buscador {
 
             for (Evento evento : getEventosMinMax(eventos, min, max))
                 System.out.println(evento);
-            System.out.println("\n");
+            System.out.println();
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
         } catch (IllegalArgumentException e) {

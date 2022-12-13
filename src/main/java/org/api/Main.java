@@ -1,8 +1,14 @@
 package org.api;
 
-import org.w3c.dom.*;
-import javax.xml.parsers.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import java.util.*;
+
 import static org.api.Buscador.*;
 
 /**
@@ -16,8 +22,7 @@ public class Main {
     public static void main(String[] args) {
         Set<Fuente> fuentes = loadFuentes();
         Set<Evento> eventos = loadEventos();
-        while (true)
-        {
+        while (true) {
             try {
                 switch (printMenu()) {
                     case 1 -> printEventosDate(eventos);
@@ -58,7 +63,7 @@ public class Main {
     /**
      * Carga las fuentes desde el archivo XML
      *
-     * @return ArrayList de fuentes
+     * @return Set de fuentes
      */
     public static Set<Fuente> loadFuentes() {
 
@@ -92,7 +97,7 @@ public class Main {
     /**
      * Carga los eventos desde el archivo XML
      *
-     * @return ArrayList de eventos
+     * @return Set de eventos
      */
     public static Set<Evento> loadEventos() {
 
