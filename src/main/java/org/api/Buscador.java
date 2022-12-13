@@ -12,7 +12,7 @@ public class Buscador {
      *
      * @param eventos Listado de eventos
      */
-    protected static void printEventosDate(ArrayList<Evento> eventos) {
+    protected static void printEventosDate(Set<Evento> eventos) {
 
         try {
 
@@ -48,7 +48,7 @@ public class Buscador {
      *
      * @param eventos Listado de eventos
      */
-    protected static void printEventosFuenteId(ArrayList<Evento> eventos) {
+    protected static void printEventosFuenteId(Set<Evento> eventos) {
 
         try {
             Scanner input = new Scanner(System.in);
@@ -74,7 +74,7 @@ public class Buscador {
      *
      * @param eventos Listado de eventos
      */
-    protected static void printEventosMinMax(ArrayList<Evento> eventos) {
+    protected static void printEventosMinMax(Set<Evento> eventos) {
 
         try {
             Scanner input = new Scanner(System.in);

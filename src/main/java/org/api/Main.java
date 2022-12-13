@@ -14,8 +14,8 @@ public class Main {
     private static final String EVENTOS_DATA = "./data/Eventos.xml";
 
     public static void main(String[] args) {
-        ArrayList<Fuente> fuentes = loadFuentes();
-        ArrayList<Evento> eventos = loadEventos();
+        Set<Fuente> fuentes = loadFuentes();
+        Set<Evento> eventos = loadEventos();
         while (true)
         {
             try {
@@ -58,9 +58,9 @@ public class Main {
      *
      * @return ArrayList de fuentes
      */
-    public static ArrayList<Fuente> loadFuentes() {
+    public static Set<Fuente> loadFuentes() {
 
-        ArrayList<Fuente> fuentes = new ArrayList<>();
+        Set<Fuente> fuentes = new HashSet<>();
 
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -92,9 +92,9 @@ public class Main {
      *
      * @return ArrayList de eventos
      */
-    public static ArrayList<Evento> loadEventos() {
+    public static Set<Evento> loadEventos() {
 
-        ArrayList<Evento> eventos = new ArrayList<>();
+        Set<Evento> eventos = new HashSet<>();
 
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
