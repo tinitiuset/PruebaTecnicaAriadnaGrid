@@ -25,14 +25,12 @@ public class Buscador {
                                 " o introduzca '0' confirmar entrada:"
                 );
                 int date = input.nextInt();
-                if (date == 0) {
+                if (date == 0)
                     break;
-                }
                 dateSet.add(new Date(date * 1000L));
             }
-            for (Evento evento : getEventosDate(eventos, dateSet)) {
+            for (Evento evento : getEventosDate(eventos, dateSet))
                 System.out.println(evento);
-            }
             System.out.println("\n");
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
@@ -51,11 +49,9 @@ public class Buscador {
 
         Set<Evento> eventos = new HashSet<>();
 
-        for (Evento evento : haystack) {
-            if (needle.contains(evento.getFecha())) {
+        for (Evento evento : haystack)
+            if (needle.contains(evento.getFecha()))
                 eventos.add(evento);
-            }
-        }
 
         return eventos;
     }
@@ -73,9 +69,8 @@ public class Buscador {
             System.out.println("Introduzca el valor de fuenteId:");
             int fuenteId = input.nextInt();
 
-            for (Evento evento : getEventosFuenteId(eventos, fuenteId)) {
+            for (Evento evento : getEventosFuenteId(eventos, fuenteId))
                     System.out.println(evento);
-            }
             System.out.println("\n");
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
@@ -94,11 +89,9 @@ public class Buscador {
 
         Set<Evento> eventos = new HashSet<>();
 
-        for (Evento evento : haystack) {
-            if (evento.getFuenteId() == fuenteId) {
+        for (Evento evento : haystack)
+            if (evento.getFuenteId() == fuenteId)
                 eventos.add(evento);
-            }
-        }
 
         return eventos;
     }
@@ -118,16 +111,31 @@ public class Buscador {
             System.out.println("Introduzca el valor máximo:");
             int max = input.nextInt();
 
-            for (Evento evento : eventos) {
-                if (evento.getValor() >= min && evento.getValor() <= max) {
-                    System.out.println(evento);
-                }
-            }
+            for (Evento evento : getEventosMinMax(eventos, min, max))
+                System.out.println(evento);
             System.out.println("\n");
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
         } catch (Exception e) {
             System.out.println("Error genérico");
         }
+    }
+
+    /**
+     * Devuelve los eventos cuyos valores estén dentro del rango
+     * @param haystack Lista de eventos a buscar
+     * @param min valor mínimo a buscar
+     * @param max valor máximo a buscar
+     * @return Lista de eventos que estén dentro del rango
+     */
+    private static Set<Evento> getEventosMinMax(Set<Evento> haystack, int min, int max) {
+
+        Set<Evento> eventos = new HashSet<>();
+
+        for (Evento evento : haystack)
+            if (evento.getValor() >= min && evento.getValor() <= max)
+                eventos.add(evento);
+
+        return eventos;
     }
 }
