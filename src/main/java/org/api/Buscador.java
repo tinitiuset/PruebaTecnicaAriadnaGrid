@@ -30,10 +30,8 @@ public class Buscador {
                 }
                 dateSet.add(new Date(date * 1000L));
             }
-            for (Evento evento : eventos) {
-                if (dateSet.contains(evento.getFecha())) {
-                    System.out.println(evento);
-                }
+            for (Evento evento : getEventosDate(eventos, dateSet)) {
+                System.out.println(evento);
             }
             System.out.println("\n");
         } catch (InputMismatchException e) {
@@ -41,6 +39,25 @@ public class Buscador {
         } catch (Exception e) {
             System.out.println("Error genérico");
         }
+    }
+
+    /**
+     * Devuelve los eventos cuyas fechas coincidan con las de la lista
+     * @param haystack Lista de eventos a buscar
+     * @param needle Lista de fechas validas
+     * @return Lista de eventos que coinciden con las fechas
+     */
+    private static Set<Evento> getEventosDate(Set<Evento> haystack, Set<Date> needle) {
+
+        Set<Evento> eventos = new HashSet<>();
+
+        for (Evento evento : haystack) {
+            if (needle.contains(evento.getFecha())) {
+                eventos.add(evento);
+            }
+        }
+
+        return eventos;
     }
 
     /**
