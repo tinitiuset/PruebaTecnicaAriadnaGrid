@@ -23,6 +23,7 @@ public class Main {
                     case 1 -> printEventosDate(eventos);
                     case 2 -> printEventosFuenteId(eventos);
                     case 3 -> printEventosMinMax(eventos);
+                    case 4 -> tester(eventos);
                     default -> System.out.println("Opción no válida");
                 }
 
@@ -48,7 +49,8 @@ public class Main {
                         ---- PRUEBA TÉCNICA ARIADNA GRID ----
                         1 - Buscar eventos por lista de timestamps.
                         2 - Buscar eventos por fuente_id.
-                        3 - Buscar eventos dentro de un rango de valores (valor min, valor max)."""
+                        3 - Buscar eventos dentro de un rango de valores (valor min, valor max).
+                        4 - Ejecutar métodos de prueba."""
         );
         return (input.nextInt());
     }

@@ -41,8 +41,9 @@ public class Buscador {
 
     /**
      * Devuelve los eventos cuyas fechas coincidan con las de la lista
+     *
      * @param haystack Lista de eventos a buscar
-     * @param needle Lista de fechas validas
+     * @param needle   Lista de fechas validas
      * @return Lista de eventos que coinciden con las fechas
      */
     private static Set<Evento> getEventosDate(Set<Evento> haystack, Set<Date> needle) {
@@ -70,7 +71,7 @@ public class Buscador {
             int fuenteId = input.nextInt();
 
             for (Evento evento : getEventosFuenteId(eventos, fuenteId))
-                    System.out.println(evento);
+                System.out.println(evento);
             System.out.println("\n");
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
@@ -81,6 +82,7 @@ public class Buscador {
 
     /**
      * Devuelve los eventos cuyos fuenteId coincidan con el introducido
+     *
      * @param haystack Lista de eventos a buscar
      * @param fuenteId fuenteId a buscar
      * @return Lista de eventos que coinciden con fuenteId
@@ -116,6 +118,8 @@ public class Buscador {
             System.out.println("\n");
         } catch (InputMismatchException e) {
             System.out.println("Error: Por favor, introduzca un número");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error : El valor mínimo no puede ser mayor que el máximo");
         } catch (Exception e) {
             System.out.println("Error genérico");
         }
@@ -123,13 +127,16 @@ public class Buscador {
 
     /**
      * Devuelve los eventos cuyos valores estén dentro del rango
+     *
      * @param haystack Lista de eventos a buscar
-     * @param min valor mínimo a buscar
-     * @param max valor máximo a buscar
+     * @param min      valor mínimo a buscar
+     * @param max      valor máximo a buscar
      * @return Lista de eventos que estén dentro del rango
      */
     private static Set<Evento> getEventosMinMax(Set<Evento> haystack, int min, int max) {
 
+        if (min > max)
+            throw new IllegalArgumentException();
         Set<Evento> eventos = new HashSet<>();
 
         for (Evento evento : haystack)
@@ -137,5 +144,67 @@ public class Buscador {
                 eventos.add(evento);
 
         return eventos;
+    }
+
+    /**
+     * El tester ejecuta 100 veces cada método de búsqueda, con parámetros aleatorios y printa los resultados
+     *
+     * @param eventos Listado de eventos
+     */
+    protected static void tester(Set<Evento> eventos) {
+
+        // Test getEventosDate 100 times with random a set of 100 random dates
+        for (int i = 0; i < 100; i++) {
+            try {
+                Set<Date> fechas = new HashSet<>();
+
+                for (int j = 0; j < 100; j++)
+                    fechas.add(new Date(new Random().nextInt() * 1000L));
+
+                System.out.println("Eventos cuyas fechas se encuentran en el set actual: ");
+
+                for (Evento evento : getEventosDate(eventos, fechas))
+                    System.out.println(evento);
+
+                System.out.println();
+            } catch (Exception e) {
+                System.out.println("Error : " + e.getMessage() + "\n");
+            }
+        }
+
+        // Test getEventosFuenteId 100 times with random values from 1 to 100
+        for (int i = 0; i < 100; i++) {
+            try {
+                int fuenteId = new Random().nextInt(100) + 1;
+
+                System.out.println("Eventos con fuenteId: " + fuenteId);
+
+                for (Evento evento : getEventosFuenteId(eventos, fuenteId))
+                    System.out.println(evento);
+
+                System.out.println();
+            } catch (Exception e) {
+                System.out.println("Error : " + e.getMessage() + "\n");
+            }
+        }
+
+        // Test getEventosMinMax 100 times with random values from 1 to 10
+        for (int i = 0; i < 100; i++) {
+            try {
+                int min = new Random().nextInt(10) + 1;
+                int max = new Random().nextInt(10) + 1;
+
+                System.out.println("Eventos con valor mínimo: " + min + " y valor máximo: " + max);
+
+                for (Evento evento : getEventosMinMax(eventos, min, max))
+                    System.out.println(evento);
+
+                System.out.println();
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error : El valor mínimo no puede ser mayor que el máximo \n");
+            } catch (Exception e) {
+                System.out.println("Error : " + e.getMessage() + "\n");
+            }
+        }
     }
 }
