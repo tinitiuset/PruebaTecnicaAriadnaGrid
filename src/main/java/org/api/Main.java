@@ -25,11 +25,11 @@ public class Main {
         while (true) {
             try {
                 switch (printMenu()) {
-                    case 1 -> printEventosDate(eventos);
-                    case 2 -> printEventosFuenteId(eventos);
-                    case 3 -> printEventosMinMax(eventos);
-                    case 4 -> tester(eventos);
-                    default -> System.out.println("Opción no válida");
+                    case 1 : printEventosDate(eventos);
+                    case 2 : printEventosFuenteId(eventos);
+                    case 3 : printEventosMinMax(eventos);
+                    case 4 : tester(eventos);
+                    default : System.out.println("Opción no válida");
                 }
 
             } catch (InputMismatchException e) {
@@ -50,12 +50,11 @@ public class Main {
         Scanner input = new Scanner(System.in);
 
         System.out.println(
-                """
-                        ---- PRUEBA TÉCNICA ARIADNA GRID ----
-                        1 - Buscar eventos por lista de timestamps.
-                        2 - Buscar eventos por fuente_id.
-                        3 - Buscar eventos dentro de un rango de valores (valor min, valor max).
-                        4 - Ejecutar métodos de prueba."""
+                "---- PRUEBA TÉCNICA ARIADNA GRID ----\n" +
+                "1 - Buscar eventos por lista de timestamps.\n" +
+                "2 - Buscar eventos por fuente_id.\n" +
+                "3 - Buscar eventos dentro de un rango de valores (valor min, valor max).\n" +
+                "4 - Ejecutar métodos de prueba."
         );
         return (input.nextInt());
     }
