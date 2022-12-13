@@ -73,10 +73,8 @@ public class Buscador {
             System.out.println("Introduzca el valor de fuenteId:");
             int fuenteId = input.nextInt();
 
-            for (Evento evento : eventos) {
-                if (evento.getFuenteId() == fuenteId) {
+            for (Evento evento : getEventosFuenteId(eventos, fuenteId)) {
                     System.out.println(evento);
-                }
             }
             System.out.println("\n");
         } catch (InputMismatchException e) {
@@ -84,6 +82,25 @@ public class Buscador {
         } catch (Exception e) {
             System.out.println("Error genérico");
         }
+    }
+
+    /**
+     * Devuelve los eventos cuyos fuenteId coincidan con el introducido
+     * @param haystack Lista de eventos a buscar
+     * @param fuenteId fuenteId a buscar
+     * @return Lista de eventos que coinciden con fuenteId
+     */
+    private static Set<Evento> getEventosFuenteId(Set<Evento> haystack, int fuenteId) {
+
+        Set<Evento> eventos = new HashSet<>();
+
+        for (Evento evento : haystack) {
+            if (evento.getFuenteId() == fuenteId) {
+                eventos.add(evento);
+            }
+        }
+
+        return eventos;
     }
 
     /**
