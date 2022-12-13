@@ -7,6 +7,7 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import static org.api.Buscador.*;
@@ -25,10 +26,18 @@ public class Main {
         while (true) {
             try {
                 switch (printMenu()) {
-                    case 1 : printEventosDate(eventos);
-                    case 2 : printEventosFuenteId(eventos);
-                    case 3 : printEventosMinMax(eventos);
-                    case 4 : tester(eventos);
+                    case 1 :
+                        printEventosDate(eventos);
+                        break;
+                    case 2 :
+                        printEventosFuenteId(eventos);
+                        break;
+                    case 3 :
+                        printEventosMinMax(eventos);
+                        break;
+                    case 4 :
+                        tester(eventos);
+                        break;
                     default : System.out.println("Opción no válida");
                 }
 
@@ -86,6 +95,8 @@ public class Main {
                     fuentes.add(fuente);
                 }
             }
+        } catch (FileNotFoundException e){
+            System.out.println("Error: No se ha encontrado el archivo " + FUENTES_DATA);
         } catch (Exception e) {
             // Tratamiento genérico de excepciones
             e.printStackTrace();
@@ -127,6 +138,8 @@ public class Main {
                     eventos.add(evento);
                 }
             }
+        } catch (FileNotFoundException e){
+            System.out.println("Error: No se ha encontrado el archivo " + EVENTOS_DATA);
         } catch (Exception e) {
             // Tratamiento genérico de excepciones
             e.printStackTrace();
